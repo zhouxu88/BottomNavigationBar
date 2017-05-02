@@ -52,7 +52,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     private void initBottomNavigationBar() {
         bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottom_navigation_bar);
         bottomNavigationBar.setTabSelectedListener(this);
-        badgeItem = new BadgeItem().setBackgroundColor(Color.RED).setText("99");
+        badgeItem = new BadgeItem()
+                .setHideOnSelect(true) //设置被选中时隐藏角标
+                .setBackgroundColor(Color.RED)
+                .setText("99");
         /**
          * 设置模式
          * 1、BottomNavigationBar.MODE_DEFAULT 默认 
@@ -89,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         //bottomNavigationBar.setActiveColor(R.color.black); 
         //未选中时的颜色，表示未选中Item中的图标和文本颜色。默认为 Color.LTGRAY 
         //bottomNavigationBar.setInActiveColor("#FFFFFF");
-        
+
 
         bottomNavigationBar.addItem(new BottomNavigationItem(R.drawable.ic_home_white_24dp, "首页").setActiveColorResource(R.color.white))
                 .addItem(new BottomNavigationItem(R.drawable.ic_music_note_white_24dp, "音乐").setActiveColorResource(R.color.white))
